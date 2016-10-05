@@ -1,0 +1,17 @@
+default: &default
+  adapter: postgresql
+  pool: 5
+  timeout: 5000
+  username: exposure
+  password: booleteam
+
+development:
+  <<: *default
+  database: exposure_development
+
+test:
+  <<: *default
+  database: exposure_test
+
+production:
+  url: <%= ENV['DATABASE_URL'] %>

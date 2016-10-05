@@ -1,0 +1,59 @@
+<div class="container">
+  <nav class="navbar navbar-inverse">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse" aria-expanded="false">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <%= link_to root_url, class: 'navbar-brand' do %>
+            <i class="fa fa-arrow-left" aria-hidden="true"></i> Főoldal
+        <% end %>
+      </div>
+    </div>
+  </nav>
+  <div class="row">
+    <div class="col-lg-12">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h3 class="panel-title">Bejelentkezés</h3>
+        </div>
+        <div class="panel-body">
+          <%= render 'layouts/flash' %>
+          <%= form_for resource, as: resource_name, url: session_path(resource_name), html: {class: 'form-horizontal'} do |f| %>
+              <div class="form-group">
+                <%= f.label :email, 'Email', class: 'col-sm-2 control-label' %>
+                <div class="col-sm-10">
+                  <%= f.email_field :email, autofocus: true, class: 'form-control' %>
+                </div>
+              </div>
+              <div class="form-group">
+                <%= f.label :password, 'Jelszó', class: 'col-sm-2 control-label' %>
+                <div class="col-sm-10">
+                  <%= f.password_field :password, autocomplete: 'off', class: 'form-control' %>
+                </div>
+              </div>
+              <% if devise_mapping.rememberable? -%>
+                  <div class="form-group">
+                    <div class="col-sm-10 col-sm-offset-2">
+                      <div class="checkbox">
+                        <label>
+                          <%= f.check_box :remember_me %> Emlékezz rám
+                        </label>
+                      </div>
+                    </div>
+                  </div>
+              <% end -%>
+              <div class="form-group">
+                <div class="col-sm-offset-2 col-sm-10">
+                  <%= f.submit 'Bejelentkezés', class: 'btn btn-default' %>
+                </div>
+              </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,57 @@
+<div class="container">
+  <nav class="navbar navbar-inverse">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse" aria-expanded="false">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <%= link_to root_url, class: 'navbar-brand' do %>
+            <i class="fa fa-arrow-left" aria-hidden="true"></i> Főoldal
+        <% end %>
+      </div>
+      <div class="collapse navbar-collapse" id="navbar-collapse">
+        <ul class="nav navbar-nav navbar-right">
+          <li><%= link_to 'Kijelentkezés', destroy_admin_session_path, method: :delete %></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <div class="row">
+    <div class="col-lg-12">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h3 class="panel-title">Galériák adminisztrációja</h3>
+        </div>
+        <div class="panel-body">
+          <%= render 'layouts/flash' %>
+          <table class="table table-bordered">
+            <thead>
+              <th>Név</th>
+              <th>Képek száma</th>
+              <th><%= link_to 'Új galéria', new_gallery_path, class: 'btn btn-success btn-sm' %></th>
+            </thead>
+            <tbody>
+              <% @galleries.each do |gallery| %>
+                <tr>
+                  <td><%= gallery.title %></td>
+                  <td><%= gallery.images.length %></td>
+                  <td>
+                    <div class="btn-group" role="group">
+                      <%= link_to 'Szerkesztés', edit_gallery_path(gallery), class: 'btn btn-default btn-sm' %>
+                      <%= link_to 'Törlés', gallery_path(gallery), method: :delete, class: 'btn btn-danger btn-sm',
+                                  data: {confirm: '<p class="text-danger"><strong>Biztos törlöd?</strong> Ez a művelet nem visszavonható.</p>'.html_safe,
+                                         commit: 'Törlés', cancel: 'Mégse'} %>
+                    </div>
+                  </td>
+                </tr>
+              <% end %>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
