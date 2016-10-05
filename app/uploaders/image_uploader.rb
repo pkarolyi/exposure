@@ -25,7 +25,7 @@ class ImageUploader < CarrierWave::Uploader::Base
   end
 
   def filename
-    "#{original_filename}_#{secure_token}.#{file.extension}" if original_filename.present?
+    "#{original_filename.split('.')[0]}_#{secure_token}.#{file.extension}" if original_filename.present?
   end
 
   protected
