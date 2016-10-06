@@ -179,16 +179,19 @@ h6 {
 }
 
 .content-section {
-  margin-top: 300px;
+  margin-top: 100px;
+  margin-bottom: 200px;
   padding: 80px;
 }
 
-section h2 {
-  font-size: 42px;
-}
+@media (min-width: $grid-float-breakpoint) {
+  section h2 {
+    font-size: 42px;
+  }
 
-section h4 {
-  font-size: 24px;
+  section h4 {
+    font-size: 24px;
+  }
 }
 
 .section-details {
