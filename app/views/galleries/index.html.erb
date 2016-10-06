@@ -54,6 +54,29 @@
           <div class="col-sm-12">
             <h2>Képek</h2>
             <p>A legjobb eszközökkel készítve, biztos kézből.</p>
+            <% @galleries.each do |gallery| %>
+              <div id="rg-gallery" class="rg-gallery">
+                <div class="rg-thumbs">
+                  <div class="es-carousel-wrapper">
+                    <div class="es-nav">
+                      <span class="es-nav-prev">Previous</span>
+                      <span class="es-nav-next">Next</span>
+                    </div>
+                    <div class="es-carousel">
+                      <ul style="box-sizing: unset">
+                        <% gallery.images.each do |image| %>
+                          <li>
+                            <a href="#">
+                              <%= image_tag image.thumb.url, data: {large: image.url, description: 'Some desc....'}, alt: 'asd' %>
+                            </a>
+                          </li>
+                        <% end %>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            <% end %>
           </div>
         </div>
       </section>

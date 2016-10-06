@@ -54,7 +54,7 @@ gem 'jquery-easing-rails'
 gem 'data-confirm-modal'
 
 gem 'carrierwave', :github => 'carrierwaveuploader/carrierwave'
-
+gem 'rails-gallery'
 gem 'fog-aws'
 gem 'mini_magick'
 
