@@ -18,3 +18,6 @@
 
 # Ignore editor files
 .idea
+
+# Ignore test uploads
+public/uploads
