@@ -27,15 +27,27 @@
         </div>
         <div class="panel-body">
           <%= render 'layouts/flash' %>
-
           <%= form_for @gallery, html: {class: 'form-horizontal'} do |f| %>
+              <% if @gallery.errors.any? then %>
+                  <div class="alert alert-danger alert-dismissible" role="alert">
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close"><i class="fa fa-times" aria-hidden="true"></i></button>
+                    <%= @gallery.errors[:is_shown].first %>
+                  </div>
+              <% end %>
               <div class="form-group">
                 <%= f.label :title, 'Cím', class: 'col-sm-2 control-label' %>
-                <div class="col-sm-8">
+                <div class="col-sm-6">
                   <%= f.text_field :title, class: 'form-control' %>
                 </div>
                 <div class="col-sm-2">
-                  <%= f.submit 'Cím frissítése', class: 'btn btn-default' %>
+                  <div class="checkbox-inline">
+                    <label>
+                      <%= f.check_box :is_shown %> Főoldal?
+                    </label>
+                  </div>
+                </div>
+                <div class="col-sm-2">
+                  <%= f.submit 'Frissítés', class: 'btn btn-default' %>
                 </div>
               </div>
           <% end %>

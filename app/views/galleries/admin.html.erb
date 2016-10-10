@@ -14,6 +14,7 @@
       </div>
       <div class="collapse navbar-collapse" id="navbar-collapse">
         <ul class="nav navbar-nav navbar-right">
+          <li><%= link_to 'Jelszóváltoztatás', edit_admin_registration_path %></li>
           <li><%= link_to 'Kijelentkezés', destroy_admin_session_path, method: :delete %></li>
         </ul>
       </div>
@@ -31,13 +32,15 @@
             <thead>
               <th>Név</th>
               <th>Képek száma</th>
+              <th>Főoldal?</th>
               <th><%= link_to 'Új galéria', new_gallery_path, class: 'btn btn-success btn-sm' %></th>
             </thead>
             <tbody>
               <% @galleries.each do |gallery| %>
-                <tr>
+                <tr <%= 'class="success"' if gallery.is_shown %>>
                   <td><%= gallery.title %></td>
                   <td><%= gallery.images.length %></td>
+                  <td><%= if gallery.is_shown then 'igen' else 'nem' end %></td>
                   <td>
                     <div class="btn-group" role="group">
                       <%= link_to 'Szerkesztés', edit_gallery_path(gallery), class: 'btn btn-default btn-sm' %>

@@ -4,7 +4,7 @@ class GalleriesController < ApplicationController
 
   # GET /galleries.json
   def index
-    @galleries = Gallery.all
+    @gallery = Gallery.where(is_shown: true).first
   end
 
   # GET /admin
@@ -64,6 +64,6 @@ class GalleriesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def gallery_params
-      params.require(:gallery).permit(:title, {images: []})
+      params.require(:gallery).permit(:title, :is_shown, {images: []})
     end
 end
