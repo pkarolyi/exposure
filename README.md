@@ -1,24 +1,11 @@
-# README
+# EXPOSURE
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Basic photographer portfolio page done in RoR.
 
-Things you may want to cover:
+Uses:
+* carrierwave
+* devise
+* boostrap-sass
+* resposive-gallery
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+What else to say
